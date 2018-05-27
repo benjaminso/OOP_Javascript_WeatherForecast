@@ -1,0 +1,328 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+       
+        <title></title>
+        <script>
+            // framework to contain object
+            function dailyWeather(){
+                //Obj inside another object
+                main= new MainInside();
+                weather = new WeatherInside();
+                cloud = new CloudInside();
+                rain = new RainInside();
+                sys = new SysInside();
+                wind = new WindInside();
+                //Ending framework for other insided objects
+                var dt_txt;
+                var dt;
+
+                dailyWeather.counter;
+                dailyWeather.cod;
+                dailyWeather.message;
+                dailyWeather.cnt;
+
+                Object.defineProperty(this,"dt_txt",{
+                    get: function(){
+                        return dt_txt;
+                    },
+                    set: function(val){
+                        dt_txt = val;
+                    }
+                });
+
+                Object.defineProperty(this,"dt",{
+                    get: function(){
+                        return dt;
+                    },
+                    set: function(val){
+                        dt = val;
+                    }
+                });
+
+                 Object.defineProperty(main,"main",{
+                    set: function(objectVal){
+                        main = objectVal;
+                    },
+                    get: function(){
+                        return main;
+                    }
+                });
+
+                Object.defineProperty(cloud,"cloud",{
+                    set: function(objectVal){
+                        cloud = objectVal;
+                    },
+                    get: function(){
+                        return cloud;
+                    }
+                });
+
+
+
+                Object.defineProperty(weather,"weather",{
+                    set: function(objectVal){
+                       weather = objectVal;
+                    },
+                    get: function(){
+                        return weather;
+                    }
+                });
+
+
+                 Object.defineProperty(rain,"rain",{
+                    set: function(objectVal){
+                        rain = objectVal;
+                    },
+                    get: function(){
+                        return rain;
+                    }
+                });
+
+
+                Object.defineProperty(sys,"sys",{
+                    set: function(objectVal){
+                        sys = objectVal;
+                    },
+                    get: function(){
+                        return sys;
+                    }
+                });
+
+
+                Object.defineProperty(wind,"wind",{
+                    set: function(objectVal){
+                        wind = objectVal;
+                    },
+                    get: function(){
+                        return wind;
+                    }
+                });
+            }
+            function MainInside(){
+                var temp;
+                var temp_min;
+                var temp_max;
+                var pressure;
+                var sea_level;
+                var grnd_level;
+                var humidity;
+                var temp_kf;
+                Object.defineProperty(this,"temp",{
+                  set: function(val){
+                    temp = val;
+                  },
+                  get: function(){
+                      return temp;
+                  }  
+                });
+                Object.defineProperty(this,"temp_min",{
+                  set: function(val){
+                    temp_min = val;
+                  },
+                  get: function(){
+                      return temp_min;
+                  }  
+                });
+                Object.defineProperty(this,"temp_max",{
+                  set: function(val){
+                    temp_max = val;
+                  },
+                  get: function(){
+                      return temp_max;
+                  }  
+                });
+                Object.defineProperty(this,"pressure",{
+                  set: function(val){
+                    pressure = val;
+                  },
+                  get: function(){
+                      return pressure;
+                  }  
+                });
+                Object.defineProperty(this,"sea_level",{
+                  set: function(val){
+                    sea_level = val;
+                  },
+                  get: function(){
+                      return sea_level;
+                  }  
+                });
+                Object.defineProperty(this,"grnd_level",{
+                  set: function(val){
+                    grnd_level = val;
+                  },
+                  get: function(){
+                      return grnd_level;
+                  }  
+                });
+                Object.defineProperty(this,"humidity",{
+                  set: function(val){
+                    humidity = val;
+                  },
+                  get: function(){
+                      return humidity;
+                  }  
+                });
+                Object.defineProperty(this,"temp_kf",{
+                  set: function(val){
+                    temp_kf = val;
+                  },
+                  get: function(){
+                      return temp_kf;
+                  }  
+                });
+
+
+            }
+            function WeatherInside(){
+                var id;
+                var main;
+                var description;
+                var icon;
+                
+                Object.defineProperty(this,"id",{
+                  set: function(val){
+                      id = val;
+                  },
+                  get: function(){
+                      return id;
+                  }  
+                });
+                Object.defineProperty(this,"main",{
+                  set: function(val){
+                    main = val;
+                  },
+                  get: function(){
+                      return main;
+                  }  
+                });
+                Object.defineProperty(this,"description",{
+                  set: function(val){
+                    description = val;
+                  },
+                  get: function(){
+                      return description;
+                  }  
+                });
+                Object.defineProperty(this,"icon",{
+                  set: function(val){
+                    icon = val;
+                  },
+                  get: function(){
+                      return icon;
+                  }  
+                });
+            }
+            function CloudInside(){
+                var all;
+                Object.defineProperty(this,"all",{
+                  set: function(val){
+                    all = val;
+                  },
+                  get: function(){
+                      return all;
+                  }  
+                });
+            }
+            function RainInside(){
+                var threeH;
+                Object.defineProperty(this,"threeH",{
+                  set: function(val){
+                    threeH = val;
+                  },
+                  get: function(){
+                      return threeH;
+                  }  
+                });
+            }
+            function SysInside(){
+                var pod;
+                Object.defineProperty(this,"pod",{
+                  set: function(val){
+                    pod = val;
+                  },
+                  get: function(){
+                      return pod;
+                  }  
+                });
+            }
+
+            function WindInside(){
+                var speed;
+                var deg;
+                Object.defineProperty(this,"speed",{
+                  set: function(val){
+                    speed = val;
+                  },
+                  get: function(){
+                      return speed;
+                  }  
+                });
+                Object.defineProperty(this,"deg",{
+                  set: function(val){
+                    deg = val;
+                  },
+                  get: function(){
+                      return deg;
+                  }  
+                });
+            }
+
+            // Ending Framework
+
+           var requestURL = "http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=c632597b1892b4d415c64ca0e9fca1f1" ;
+           var request = new XMLHttpRequest();
+           request.open('GET', requestURL);
+           request.onload = function(){
+               // objectJson =JSON.parse(request.response);
+            //    document.getElementById("load_content").innerHTML= objectJson;
+                //dailyWeather();
+                assignedObject(JSON.parse(request.response));
+                dailyWeather.staticvariable1="asdasdasd";
+                myInstance = new dailyWeather();
+                //weatherInside = new WesatherInside();
+                cloudInside = new CloudInside();
+                cloudInside.all="adasdasdas";
+                myInstance.cloud= cloudInside;
+                myInstance.dt = "220000";
+                // var mainInsideObject = new MainInside();
+               // dailyWeather.counter=20;
+               // weatherInside.main = "123";
+               // myInstance.weather = weatherInside;
+                //myInstance.MainInside.temp ="34";
+                //myInstance.main = mainInsideObject;
+                //console.log(dailyWeather.counter);
+               // console.log(myInstance.dt);
+               // console.log(myInstance.cloud.all);
+               // console.log(myInstance.weather.main);
+               // console.log(myInstance.MainInside.temp);   
+           }
+           function assignedObject(objectJSON){
+               staticWeather= new dailyWeather();
+               dailyWeather.cod = objectJSON.cod;
+               dailyWeather.message = objectJSON.message;
+               dailyWeather.cnt = objectJSON.cnt;
+                
+              // console.log(dailyWeather.list.length);
+              console.log(objectJSON.list.length);
+               
+
+               /*
+                main= new MainInside();
+                weather = new WeatherInside();
+                cloud = new CloudInside();
+                rain = new RainInside();
+                sys = new SysInside();
+                wind = new WindInside();
+                */
+           }
+           request.send();
+        </script>
+    </head>
+    <body>
+
+         <div id="load_content"></div>
+    </body>
+
+</html>
