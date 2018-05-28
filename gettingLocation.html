@@ -2,11 +2,24 @@
 
 
 <head>
-
+        <meta charset="utf-8"/>
+        <title>getting</title>
+    <script>
+        console.log("asdadasd");
+         var requestURL = "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=BfZGgoA9OaaSy7oyAReezmDFngUe2Lek&q=Annandale&language=en-us" ;
+           var request = new XMLHttpRequest();
+           request.open('GET', requestURL);
+           request.onload = function(){
+               console.log("asdadasd");
+                console.log(request.response);
+               document.getElementById("loading").innerHTML=request.response;
+                
+           }
+    </script>
 </head>
 
 <body>
 
-    
+    <div id="loading"></div>
 </body>
 </html>
